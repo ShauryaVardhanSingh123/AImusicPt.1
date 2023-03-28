@@ -1,15 +1,13 @@
 song="";
 leftWristX=0;
 leftWristY=0;
+scoreLeftWrist=0;
+scoreRightWrist=0;
 rightWristX=0;
 rightWristY=0;
-scoreLeftWrist=0;
-
-canvas="";
-video="";
 
 function preload(){
-    song=loadSound("music.mp3");
+    song=loadSound("music.mp3")
 }
 
 function setup(){
@@ -75,9 +73,14 @@ function draw() {
 	
 }
 
+function play(){
+    song.play();
+    song.setVolume(1);
+    song.rate(1);
+}
 
 function modelLoaded(){
-    console.log("poseNet has been initialized");
+    console.log("poseNet is initialized");
 }
 
 function gotPoses(results){
@@ -100,10 +103,4 @@ function gotPoses(results){
         console.log("score Right Wrist = " + scoreRightWrist);
 
     }
-}
-
-function play(){
-	song.play();
-    song.setVolume(1);
-    song.rate(1);
 }
